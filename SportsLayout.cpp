@@ -194,10 +194,10 @@ int *SportsLayout::intial_node()
         }
     }
 
-    std::sort(T_sorted.begin(), T_sorted.end());
-    std::reverse(T_sorted.begin(), T_sorted.end());
-    std::sort(N_sorted.begin(), N_sorted.end());
-    std::reverse(N_sorted.begin(), N_sorted.end());
+    std::sort(T_sorted.begin(), T_sorted.end(), [](const auto &a, const auto &b)
+              { return a.first > b.first; });
+    std::sort(N_sorted.begin(), N_sorted.end(), [](const auto &a, const auto &b)
+              { return a.first > b.first; });
 
     // we have two decreasing order sorted vectors with (value, (x,y)) format from the matrices.
     // The above can be used in many ways to get more logical start states
