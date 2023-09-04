@@ -211,15 +211,19 @@ using namespace std;
         // for(int i=0;i<l;i++)
         // prev[i]= shuffled[i];                    // previous node - to be implemented
         // for(int i=0;i<l;i++)
-        // temp[i]= shuffled[i];                    // temp initialised
+        // temp[i]= shuffled[i];                  // temp initialised
         long long c = cost_fn(mapping);
         cost_mi = c;
-        // cout<<cost_mi<<"\n";
+        
                 // map_mi = mapping;
         auto currentTime = std::chrono::steady_clock::now();
         auto elapsedTime = std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count();
-        while (elapsedTime <= time*60-5)
+        int iter = 1;
+        // int lm = 1;
+        long long temp_cost = cost_fn(temp);
+        while (elapsedTime <= time*60-1)
         {
+            // cout<<cost_mi<<"\n";
             // int* mapping
             bool swap = false;
             // cout<<"hi0"<<"\n";
@@ -237,9 +241,11 @@ using namespace std;
 
                     // cout<<c<<"\n";
                     // cout<<cost_mi<<"\n";
-                    if (c < cost_mi)
+                    if (c < temp_cost)
                     {
-                            cost_mi = c;
+                            temp_i2 = temp_i;
+                            temp_j2 = temp_j;
+                            temp_cost = c;
                             temp_i = i;
                             temp_j = j;
                             swap = true;
@@ -252,26 +258,49 @@ using namespace std;
 
             if (swap)
             {
-                if (temp_j < z)
+                // cout<<"lessgoo"<<"\n";
+                int x = rand()%10000;
+                if (x < 1000)
                 {
-                    int t = mapping[temp_i];
-                    mapping[temp_i] = mapping[temp_j];
-                    mapping[temp_j] = t;
-                    temp[temp_i] = mapping[temp_i];
-                    temp[temp_j] = mapping[temp_j];
-                    // shuffled[temp_i] = mapping[temp_i];
-                    // shuffled[temp_j] = mapping[temp_j];
+                    int t = temp[temp_i2];
+                    temp[temp_i2] = temp[temp_j2];
+                    temp[temp_j2] = t;
+                    temp_cost = cost_fn(temp);
+                    // temp[temp_i2] = mapping[temp_i2];
+                    // temp[temp_j2] = mapping[temp_j2];
+                    // cost_mi = cost_fn(mapping);
                 }
                 else
                 {
-                    int t = mapping[temp_i];
-                    mapping[temp_i] = temp[temp_j];
-                    temp[temp_i] = mapping[temp_i];
+                // if (temp_j < z)
+                // {
+                    int t = temp[temp_i];
+                    temp[temp_i] = temp[temp_j];
                     temp[temp_j] = t;
+                    temp_cost = cost_fn(temp);
+                    // temp[temp_i] = [temp_i];
+                    // temp[temp_j] = mapping[temp_j];
+                    // shuffled[temp_i] = mapping[temp_i];
+                    // shuffled[temp_j] = mapping[temp_j];
+                // }
+                // else
+                // {
+                //     int t = mapping[temp_i];
+                //     mapping[temp_i] = temp[temp_j];
+                //     temp[temp_i] = mapping[temp_i];
+                //     temp[temp_j] = t;
+                // }
                 }
+                iter++;
             }
             else
             {
+                if (temp_cost<cost_mi)
+                {
+                    cost_mi = temp_cost;
+                    for(int i=0;i<z;i++)
+                    mapping[i]=temp[i];
+                }
                 auto current = std::chrono::steady_clock::now();
                 // std::chrono::steady_clock::duration duration = current.time_since_epoch();
                 // std::chrono::seconds seconds = std::chrono::duration_cast<std::chrono::seconds>(duration);
@@ -279,29 +308,36 @@ using namespace std;
                 // cout << ctime(&time_tCurrent) << "\n";
                 elapsedTime = std::chrono::duration_cast<std::chrono::seconds>(current - startTime).count();
                 // cout<< elapsedTime << "\n";
-                if (elapsedTime <= time*60-5)
+                if (elapsedTime <= time*60-1)
                 {
                     random_shuffle(temp, temp + l);
+                    // lm++;
+                    // cout<<lm<<"\n";
+                    temp_cost = cost_fn(temp);
                 // for(int i=0;i<l;i++)
                 // temp[i]=shuffled[i];
-                    long long c = cost_fn(temp);
-                    while (c >=cost_mi && elapsedTime <= time*60-5)
-                    {
-                        
-                        random_shuffle(temp, temp + l);
-                        // for(int i=0;i<l;i++)
-                        // temp[i]=shuffled[i];
-                        long long c = cost_fn(temp);
-                        auto current = std::chrono::steady_clock::now();
-                        elapsedTime = std::chrono::duration_cast<std::chrono::seconds>(current - startTime).count();
-                        // cout<<elapsedTime<<"\n";
-                    }
-                    if (c<cost_mi)
-                    {
-                        cost_mi = c;
-                        for(int i=0;i<z;i++)
-                        mapping[i]=temp[i];
-                    }
+                    // long long c = cost_fn(temp);
+                    // while (c >=cost_mi && elapsedTime <= time*60-1)
+                    // {                   
+                    //     random_shuffle(temp, temp + l);
+                    //     // for(int i=0;i<l;i++)
+                    //     // temp[i]=shuffled[i];
+                    //     long long c = cost_fn(temp);
+                    //     lm++;
+                    //     cout<<lm<<"\n";
+                    //     auto current = std::chrono::steady_clock::now();
+                    //     elapsedTime = std::chrono::duration_cast<std::chrono::seconds>(current - startTime).count();
+                    //     // cout<<elapsedTime<<"\n";
+                    // }
+                    // if (c<cost_mi)
+                    // {
+                    //     temp_cost = cost_fn(temp);
+                    //     cost_mi = c;
+                    // }
+                    // else
+                    // {
+                    //     break;
+                    // }
                 }
                 // else
                 

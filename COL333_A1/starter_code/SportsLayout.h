@@ -18,13 +18,14 @@ class SportsLayout{
     int *shuffled;
     int *prev;
     int *temp;
-    int temp_i;
-    int temp_j;
+    int temp_i= 0;
+    int temp_j= 0;
+    int temp_i2 = 0;
+    int temp_j2 = 0;
     // long long temp = 
     long long cost_mi = numeric_limits<long long>::max();
     int *map_mi;
-    vector<int*> visited_maps; 
-
+    vector<int*> visited_maps;
     public:
     SportsLayout(string inputfilename);
 
