@@ -23,8 +23,7 @@ int main(int argc, char** argv )
     SportsLayout *s  = new SportsLayout( inputfilename );
     s->compute_allocation();
     s->write_to_file(outputfilename);
-
-    long long cost = s->cost_fn ();
+    long long cost = s->cost_fn2();
     cout<< "cost:"<<cost<<endl;
 
 
