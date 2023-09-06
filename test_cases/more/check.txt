@@ -1,0 +1,33 @@
+Iter -> 167417, Restart -> 9001
+Allocation written to the file successfully.
+Cost:595740
+Iter -> 55068, Restart -> 2412
+Allocation written to the file successfully.
+Cost:533065
+Iter -> 13626, Restart -> 314
+Allocation written to the file successfully.
+Cost:2951717
+Iter -> 4698, Restart -> 87
+Allocation written to the file successfully.
+Cost:7296809
+Iter -> 2336, Restart -> 38
+Allocation written to the file successfully.
+Cost:14413164
+Iter -> 1455, Restart -> 24
+Allocation written to the file successfully.
+Cost:23275965
+Iter -> 474, Restart -> 5
+Allocation written to the file successfully.
+Cost:21660111
+Iter -> 156, Restart -> 2
+Allocation written to the file successfully.
+Cost:20296611
+Iter -> 144, Restart -> 2
+Allocation written to the file successfully.
+Cost:19698992
+Iter -> 16479, Restart -> 633
+Allocation written to the file successfully.
+Cost:389221
+Iter -> 33649, Restart -> 1305
+Allocation written to the file successfully.
+Cost:408607
