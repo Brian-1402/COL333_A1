@@ -1,0 +1,22 @@
+Allocation written to the file successfully.
+cost:591534
+Allocation written to the file successfully.
+cost:521678
+Allocation written to the file successfully.
+cost:2930716
+Allocation written to the file successfully.
+cost:7268646
+Allocation written to the file successfully.
+cost:14325341
+Allocation written to the file successfully.
+cost:23126191
+Allocation written to the file successfully.
+cost:21411230
+Allocation written to the file successfully.
+cost:19647602
+Allocation written to the file successfully.
+cost:19136718
+Allocation written to the file successfully.
+cost:384967
+Allocation written to the file successfully.
+cost:403302

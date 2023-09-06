@@ -18,5 +18,6 @@
 
 # Ignored files
 
-testing/
-submission/
+starter_code/run2.sh
+main
+main.exe
